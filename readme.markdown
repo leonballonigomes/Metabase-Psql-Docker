@@ -116,6 +116,10 @@ Use **psql_db** to define the host (this is the internal psql container **DSN**)
 
 The admin user is created by the first access
 
+Add a database (internal as shown below or else) **Only admin can do this** 
+
+![metabase_db](images/metabase_db.png "metabase_db")
+
 ### Psql db
 
 This one is a little more complicated. This is because you will need to enter the docker psql_db and run psql command to enter it. You must use a terminal for this.
