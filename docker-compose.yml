@@ -1,0 +1,55 @@
+version: '3.8'
+volumes:
+  db_data:
+services:
+    
+  psql:
+    container_name: psql_db
+    env_file:
+      - ./.env
+    restart: always
+    build:
+      context: .
+      dockerfile: ./docker/psql/Dockerfile
+    environment:
+      POSTGRES_USER: "${PSQL_USER}"
+      POSTGRES_PASSWORD: "${PSQL_PSWD}"
+      POSTGRES_DB: "postgres"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - "${PSQL_SERVER_PORT}:${PSQL_SERVER_PORT}"
+
+  pgadmin:
+    container_name: pgadmin
+    env_file:
+      - ./.env
+    restart: always
+    build:
+      context: .
+      dockerfile: ./docker/pgadmin/Dockerfile
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "${PGADM_EMAIL}"
+      PGADMIN_DEFAULT_PASSWORD: "${PGADM_PSWD}"
+    ports:
+      - "${PGADM_SERVER_PORT_IN}:${PGADM_SERVER_PORT_OUT}"
+  
+  metabase:
+    container_name: metabase
+    env_file:
+      - ./.env
+    restart: always
+    build:
+      context: .
+      dockerfile: ./docker/metabase/Dockerfile
+    environment:
+      MB_ADMIN_EMAIL: "${MB_USER}"
+      MB_SITE_LOCALE: "pt-br"
+      MB_DB_TYPE: postgres
+      MB_DB_DBNAME: metabase
+      MB_DB_PORT: "${PSQL_SERVER_PORT}"
+      MB_DB_USER: "${PSQL_USER}"
+      MB_DB_PASS: "${PSQL_PSWD}"
+      MB_DB_HOST: psql_db
+    ports:
+      - "${MB_PORT}:${MB_PORT}"
