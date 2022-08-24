@@ -20,6 +20,13 @@ If you don`t have it already, this is a must have for this to work.
 
 [Use this link to install and test it](https://docs.docker.com/engine/install/ubuntu/#installation-methods) -> **Read it carefully before begining**
 
+## Check docker-compose
+There is a way to check it the docker-compose script is working (not necessarily without running errors) and not building due to sintax errors
+
+    docker-compose -f docker-compose.yml config
+
+    This is very useful when building container that are time consuming 
+
 ## set up you environment variables
 
 First thing to do is to make you own .env file. 
