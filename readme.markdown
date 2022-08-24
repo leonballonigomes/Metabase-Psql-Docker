@@ -82,6 +82,23 @@ enter a browser and insert the following
 Use the user and password defined by
 PGADM_EMAIL and PGADM_PSWD env variables
 
+![Pg Panel](images/pgadmin_enter.png "Pg Panel")
+
+The entrance panel 
+
+![Pg server](images/pgadmin_server0.png "Pg server")
+
+Register the psql server you want to directly access the data
+
+![Pg server](images/pgadmin_server1.png "Pg server")
+
+Enter the server name 
+
+![Pg server](images/pgadmin_server2.png "Pg server")
+
+define the host or ip and enter the db user. 
+Use **psql_db** to define the host (this is the internal psql container **DSN**)
+
 ### Metabase
 
     0.0.0.0:3000 
@@ -158,3 +175,5 @@ Useful links for you own project
 [5] https://dev.to/shree_j/how-to-install-and-run-psql-using-docker-41j2#:~:text=Connecting%20to%20the%20PSQL%20server%20via%20CLI%20%3A&text=Run%20the%20below%20command%20to,p%205432%20%2DU%20postgres%20%2DW
 
 [6] https://towardsdatascience.com/how-to-build-slim-docker-images-fast-ecc246d7f4a7
+
+[7] https://www.postgresqltutorial.com/postgresql-tutorial/import-csv-file-into-posgresql-table/#:~:text=First%2C%20right%2Dclick%20the%20persons,the%20delimiter%20as%20comma%20(%20%2C%20)%3A

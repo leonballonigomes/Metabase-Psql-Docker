@@ -29,6 +29,7 @@ services:
       context: .
       dockerfile: ./docker/pgadmin/Dockerfile
     environment:
+      MAX_LOGIN_ATTEMPTS: 0
       PGADMIN_DEFAULT_EMAIL: "${PGADM_EMAIL}"
       PGADMIN_DEFAULT_PASSWORD: "${PGADM_PSWD}"
     ports:
