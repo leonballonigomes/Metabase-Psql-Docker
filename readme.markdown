@@ -6,7 +6,29 @@ The idea is to use [Docker](https://www.docker.com/) to facilitate sharing this 
 2. Build a PSQL db to persist local data
 3. Integrade PSQL db with pgadmin to have a friendly interface
 
-# How to use it
+# Quick Startup
+
+git clone the repo 
+
+        git clone git@github.com:(youruserhere)/Metabase-Psql-Docker.git
+
+Enter at the cloned repository and create the .env file
+
+        MB_PORT=3000PSQL_SERVER_PORT=5432
+        PGADM_SERVER_PORT_IN=5050
+        PGADM_SERVER_PORT_OUT=80
+        PSQL_USER=postgres
+        PSQL_PSWD=postgres
+        PGADM_EMAIL=youremail@provider.com
+        PGADM_PSWD=postgres
+
+
+Run it with docker compose
+
+        docker-compose up
+
+
+# How to use it (step-by-step)
 
     Requirements
     1. Docker
